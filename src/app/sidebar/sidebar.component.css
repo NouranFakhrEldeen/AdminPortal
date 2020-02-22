@@ -1,0 +1,151 @@
+.kn-sidebar {
+  width: 17%;
+  height: 100%;
+  border-right: 1px solid black;
+  background-color: white;
+  color: black;
+}
+ul {
+  list-style: none;
+  margin: 0;
+}
+.kn-sidebar ul li,
+.kn-sidebar ul li ul li {
+  display: block;
+  border-bottom: 1px solid #9aa319;
+  height: 20px;
+  float: left;
+  padding: 8% 0 8%;
+  width: 100%;
+}
+
+.tp-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #eee;
+}
+.tp-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+  width: 100px;
+}
+.example-container {
+  width: 260px;
+  height: 660px;
+  border-right: 1px solid gainsboro;
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-sidenav {
+  padding: 20px;
+  width: 336px;
+}
+
+.line {
+  border-bottom: 1px solid gainsboro;
+  padding: 2px;
+}
+
+.menu {
+  width: 159px;
+  height: 36px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  color: black;
+  float: right;
+}
+
+.settingsLBL {
+  width: 130px;
+  height: 16px;
+  font-size: 10px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.6;
+  letter-spacing: 1.5px;
+  color: #bd0000;
+  display: block;
+  padding: 13px;
+}
+
+.menu-item {
+  width: 300px;
+  text-align: left;
+  padding: 2px;
+}
+
+.mat-expansion-indicator::after {
+  color: #bd0000 !important;
+}
+
+.mat-expansion-panel-spacing {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.side-menu:hover {
+  background-color: #bd0000;
+  color: #ffffff !important;
+}
+.side-menu:active {
+  background-color: #bd0000;
+  color: #ffffff !important;
+}
+
+.is-active {
+  background-color: #bd0000;
+}
+
+.mat-expansion-panel-body {
+  padding-right: 0px !important;
+  padding-bottom: 0px !important;
+  padding-left: 0px !important;
+}
+
+.mat-expansion-panel-header {
+  padding: 0px 13px !important;
+}
+
+.mat-expansion-panel {
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0), 0 2px 2px 0 rgba(0, 0, 0, 0),
+    0 1px 5px 0 rgba(0, 0, 0, 0) !important;
+}
+
+.mat-drawer-content {
+  background-color: white;
+}
+
+.txt {
+  width: 82px;
+  height: 24px;
+  opacity: 0.87;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: 0.15px;
+}
+
+.dash {
+  opacity: 0.87;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: 0.15px;
+  color: black;
+  width: 100%;
+}

@@ -1,0 +1,21 @@
+/* body {
+  background-image: url("../../assets/restaurants.jpg");
+} */
+
+:host {
+  display: flex;
+  justify-content: center;
+  margin: 100px 0px;
+  /* background-image: url("../../assets/restaurants.jpg"); */
+}
+
+.mat-form-field {
+  width: 100%;
+  min-width: 300px;
+}
+
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+}

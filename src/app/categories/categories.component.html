@@ -1,0 +1,56 @@
+<div class="add-btn">
+  <button (click)="addData()" mat-raised-button [style.color]="'#bd0000'">
+    Add New Category
+  </button>
+</div>
+
+<div class="example-container mat-elevation-z8">
+  <table mat-table [dataSource]="allCategories">
+    <!-- Name Column -->
+    <ng-container matColumnDef="CategoryName">
+      <th
+        mat-header-cell
+        fxFlex="80%"
+        style="text-align:left"
+        *matHeaderCellDef
+      >
+        <h4>Category Name</h4>
+      </th>
+      <td mat-cell fxFlex="80%" *matCellDef="let element">
+        {{
+          element.CategoryName
+            ? element.CategoryName.slice(0, 100)
+            : element.CategoryName
+        }}
+        <!-- <button mat-flat-button color="primary" *ngIf="element.CategoryName.length > 70" style="width: 104px;">Show More</button> -->
+      </td>
+    </ng-container>
+
+    <!-- actions Column -->
+    <ng-container matColumnDef="actions" style="width:20%;max-width:20% ;">
+      <th mat-header-cell fxFlex="20%" *matHeaderCellDef>
+        <h4>Actions</h4>
+      </th>
+      <td
+        style="margin-top: inherit;"
+        mat-cell
+        fxFlex="20%"
+        *matCellDef="let element"
+      >
+        <!-- <a href="void:javscript(0)" (click)="showData(element)" >  <mat-icon [style.color]="'black'">remove_red_eye</mat-icon></a> -->
+
+        <span class="icon-action" (click)="editData(element)">
+          <mat-icon [style.color]="'gray'">edit</mat-icon>
+        </span>
+
+        <span class="icon-action" (click)="deleteData(element)">
+          <mat-icon style="color:#bd0000">delete</mat-icon>
+        </span>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>

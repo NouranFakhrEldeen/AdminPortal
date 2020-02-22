@@ -1,0 +1,137 @@
+<h3>{{ data.dialogHeader }}</h3>
+<hr />
+
+<div *ngIf="data.operationType == 'Add'">
+  <form (ngSubmit)="onSave()" [formGroup]="categoryForm">
+    <div mat-dialog-content>
+      <div class="example-form">
+        <br />
+        <br />
+        <!-- Category text box -->
+
+        <mat-form-field appearance="outline">
+          <mat-label>Category Name</mat-label>
+          <input
+            formControlName="categoryName"
+            #name
+            maxlength="40"
+            matInput
+            placeholder="Category Name"
+            [(ngModel)]="dataItem.categoryName"
+          />
+          <mat-hint align="end"> {{ name.value.length }} / 40</mat-hint>
+          <mat-error *ngIf="hasError('categoryName', 'required')"
+            >Category Name Is Required</mat-error
+          >
+        </mat-form-field>
+
+        <br />
+      </div>
+    </div>
+    <div mat-dialog-actions class="action-buttons">
+      <button
+        mat-flat-button
+        color="warn"
+        [disabled]="categoryForm.invalid"
+        class="save-btn"
+        type="submit"
+      >
+        Save
+      </button>
+      <button
+        mat-stroked-button
+        color="warn"
+        style="width: 104px"
+        (click)="onCancelClick($event)"
+      >
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>
+<!-- Edit Modal -->
+
+<div *ngIf="data.operationType == 'Edit'">
+  <form (ngSubmit)="onSave()" [formGroup]="categoryForm">
+    <div mat-dialog-content>
+      <div class="example-form">
+        <br />
+        <br />
+        <!-- Category text box -->
+
+        <mat-form-field appearance="outline">
+          <mat-label>Category Name</mat-label>
+          <input
+            #name
+            maxlength="40"
+            formControlName="categoryName"
+            matInput
+            placeholder="Category Name"
+            [(ngModel)]="dataItem.categoryName"
+          />
+          <mat-hint align="end"> {{ name.value.length }} / 40</mat-hint>
+          <mat-error *ngIf="hasError('categoryName', 'required')"
+            >Category Name Is Required</mat-error
+          >
+        </mat-form-field>
+        <br />
+        <!-- assigend tags text box  -->
+      </div>
+    </div>
+    <div mat-dialog-actions class="action-buttons">
+      <button
+        mat-flat-button
+        color="warn"
+        class="save-btn"
+        [disabled]="categoryForm.invalid"
+        (click)="onSave()"
+        type="submit"
+      >
+        Save
+      </button>
+      <button
+        mat-stroked-button
+        color="warn"
+        style="width: 104px"
+        (click)="onCancelClick($event)"
+      >
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>
+
+<!-- Delete Modal -->
+<div *ngIf="data.operationType == 'Delete'">
+  <div mat-dialog-content>
+    <div class="example-form">
+      <h3>
+        Are you sure you want to delete this ?
+      </h3>
+      <h5 style="color: crimson">
+        {{ dataItem.CategoryName }}
+      </h5>
+      <hr />
+    </div>
+  </div>
+
+  <div mat-dialog-actions class="action-buttons">
+    <button
+      mat-flat-button
+      color="warn"
+      style="width: 104px; margin-right: 8px"
+      (click)="onSave()"
+      type="submit"
+    >
+      Confirm
+    </button>
+    <button
+      mat-stroked-button
+      color="warn"
+      style="width: 104px"
+      (click)="onCancelClick($event)"
+    >
+      Cancel
+    </button>
+  </div>
+</div>

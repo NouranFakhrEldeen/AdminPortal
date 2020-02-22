@@ -1,0 +1,101 @@
+body {
+  overflow: hidden;
+}
+.login {
+  /* padding: 2%; */
+  margin: 3%;
+}
+
+.login-Div {
+  flex: 50;
+  margin-left: 1%;
+}
+
+.login-Img {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  width: auto;
+  height: -webkit-fill-available;
+  /* opacity: 0.7; */
+}
+.Welcome-back-to-Voda {
+  /* margin-left: 120px; */
+  width: 442px;
+  height: 92px;
+  font-size: 34px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.25px;
+  text-align: center;
+  color: #e60000;
+}
+
+.KnowledgeBase {
+  width: 187px;
+  height: 30px;
+  opacity: 0.87;
+  font-size: 26px;
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+}
+
+.KnowledgeBase .text-style-1 {
+  font-weight: 300;
+}
+
+.Surface {
+  width: 29%;
+}
+
+.Rectangle-2-Copy {
+  width: 29%;
+  height: 6vh;
+  background-color: #e60000;
+  margin-top: 5px;
+}
+
+.Please-enter-your-lo {
+  margin-left: 1%;
+  width: 29%;
+  height: 28px;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.75;
+  letter-spacing: 0.44px;
+  text-align: center;
+  color: #000000;
+  margin-top: 0;
+}
+.vod_logo {
+  margin-left: 1%;
+  position: absolute;
+  height: 5%;
+}
+.vod_text {
+  margin-left: 4%;
+  width: 2.5%;
+  position: absolute;
+}
+
+.vod_text2 {
+  width: 2.5%;
+  position: none;
+}
+
+.knowledgeb-header {
+  margin-top: 1%;
+  display: inline-block;
+}
+.half-2 {
+  width: 43%;
+}

@@ -1,0 +1,7 @@
+.flex-container {
+  flex-direction: inherit !important;
+}
+
+.side {
+  flex: 1 1 15% !important;
+}

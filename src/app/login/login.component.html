@@ -1,0 +1,68 @@
+<mat-card>
+  <mat-card-title>Login</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="loginForm">
+      <mat-form-field class="email" appearance="outline">
+        <input
+          type="email"
+          formControlName="email"
+          class="form-control"
+          matInput
+          placeholder="email"
+        />
+        <mat-error *ngIf="hasError('email', 'required')" style="color: red;"
+          >email is required</mat-error
+        >
+      </mat-form-field>
+      <!-- <br />
+
+  <br
+    *ngIf="
+      hasError('email', 'required') && loginForm.controls['email']?.touched
+    "
+  /> -->
+
+      <mat-form-field class="email" appearance="outline">
+        <input
+          type="password"
+          class="form-control"
+          formControlName="password"
+          matInput
+          placeholder="Your Password"
+        />
+        <mat-error *ngIf="hasError('password', 'required')" style="color:red"
+          >Password is required</mat-error
+        >
+      </mat-form-field>
+      <!-- <br />
+  <br
+    *ngIf="
+      hasError('password', 'required') &&
+      loginForm.controls['password']?.touched
+    "
+  /> -->
+      <button
+        style="margin-top: 5em"
+        type="submit"
+        (click)="tryLogin(loginForm.value)"
+        class="btn  btn-block "
+        style="background-color:#800080;  color: #fff;"
+      >
+        Login
+      </button>
+      <mat-error
+        style="text-align: center; margin-left: 72px;margin-top: 9px;color:red"
+        >{{ loginErrorMSG }}
+      </mat-error>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<!-- <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <p>No account yet? <a href="/register">Create an account</a></p>
+    </div>
+  </div> -->
+<!-- <button type="submit" (click)="logout()" class="btn btn-default">
+    logout
+  </button> -->
