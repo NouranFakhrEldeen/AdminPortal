@@ -1,14 +1,18 @@
-<mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="example-sidenav" mode="side">
-    <button (click)="showFiller = !showFiller" mat-raised-button></button>
-  </mat-drawer>
-
-  <mat-accordion>
-    <!-- <span class="settingsLBL">GLOBAL SETTINGS</span> -->
+<!-- <mat-drawer-container class="example-container"> -->
+<mat-sidenav
+  #sidenav
+  class="example-sidenav"
+  opened
+  mode="side"
+  role="navigation"
+>
+  <!-- <span class="settingsLBL">GLOBAL SETTINGS</span> -->
+  <mat-nav-list>
+    style="padding:0 !important;">
     <mat-list-item
       style=" cursor: pointer"
       class="side-menu txt"
-      (click)="router.navigate(['modifiers'])"
+      (click)="goToPages()"
     >
       Modifers
     </mat-list-item>
@@ -19,14 +23,13 @@
     >
       Categories
     </mat-list-item>
-    <mat-list style="padding:0 !important;">
-      <mat-list-item style="cursor: pointer" class="side-menu txt">
-        Products
-      </mat-list-item>
 
-      <mat-list-item style=" cursor: pointer" class="side-menu txt">
-        Sub Categories
-      </mat-list-item>
-    </mat-list>
-  </mat-accordion>
-</mat-drawer-container>
+    <mat-list-item style="cursor: pointer" class="side-menu txt">
+      Products
+    </mat-list-item>
+
+    <mat-list-item style=" cursor: pointer" class="side-menu txt">
+      Sub Categories
+    </mat-list-item>
+  </mat-nav-list>
+</mat-sidenav>

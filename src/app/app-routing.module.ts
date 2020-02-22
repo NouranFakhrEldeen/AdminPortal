@@ -9,7 +9,7 @@ import { from } from "rxjs";
 
 const routes: Routes = [
   // { path: "login", component: LoginComponent },
-  // { path: "", component: EmployeesComponent },
+  { path: "/Employees", component: EmployeesComponent },
   // { path: "category", component: CategoriesComponent },
   // { path: "modifiers", component: ModifiersComponent }
   {

@@ -8,7 +8,7 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { MatChipsModule } from "@angular/material/chips";
 import { MatTreeModule } from "@angular/material/tree";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
-// import { FlexLayoutModule } from "@angular/flex-layout";
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 import {
   MatTableModule,
@@ -77,7 +77,7 @@ import {
     MatFormFieldModule,
     MatAutocompleteModule,
     MatTreeModule,
-    // FlexLayoutModule,
+    FlexLayoutModule,
     MatBadgeModule
 
     // CdkTreeModule

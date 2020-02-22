@@ -1,18 +1,63 @@
 <!-- <app-top-navbar></app-top-navbar> -->
-
+<!-- 
 <div
   class="flex-container"
   fxLayout
   fxLayout.lg="column"
   fxLayoutAlign="center"
->
-  <div class="side" fxFlex="10%">
-    <app-sidebar></app-sidebar>
-  </div>
+> -->
+<mat-toolbar style="background-color: #800080">
+  <mat-toolbar-row>
+    <button
+      type="button"
+      aria-label="Toggle sidenav"
+      mat-icon-button
+      (click)="toggleSidenav()"
+      value="sidebarclosed"
+    >
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container class="example-container">
+  <!-- <mat-drawer-container class="example-container"> -->
+  <mat-sidenav
+    #sidenav
+    class="example-sidenav"
+    opened
+    mode="side"
+    role="navigation"
+  >
+    <!-- <span class="settingsLBL">GLOBAL SETTINGS</span> -->
+    <mat-nav-list>
+      <mat-list-item
+        style=" cursor: pointer"
+        class="side-menu txt"
+        (click)="goToPages()"
+      >
+        Modifers
+      </mat-list-item>
+      <mat-list-item
+        style="cursor: pointer"
+        class="side-menu txt"
+        (click)="router.navigate(['category'])"
+      >
+        Categories
+      </mat-list-item>
 
-  <div fxFlex="87%">
-    <div class="main">
-      <router-outlet> </router-outlet>
-    </div>
-  </div>
-</div>
+      <mat-list-item style="cursor: pointer" class="side-menu txt">
+        Products
+      </mat-list-item>
+
+      <mat-list-item style=" cursor: pointer" class="side-menu txt">
+        Sub Categories
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet> </router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- </div> -->

@@ -87,7 +87,7 @@ ul {
 }
 
 .mat-expansion-indicator::after {
-  color: #bd0000 !important;
+  color: #800080 !important;
 }
 
 .mat-expansion-panel-spacing {
@@ -95,16 +95,16 @@ ul {
   margin: 0 !important;
 }
 .side-menu:hover {
-  background-color: #bd0000;
+  background-color: #800080;
   color: #ffffff !important;
 }
 .side-menu:active {
-  background-color: #bd0000;
+  background-color: #800080;
   color: #ffffff !important;
 }
 
 .is-active {
-  background-color: #bd0000;
+  background-color: #800080;
 }
 
 .mat-expansion-panel-body {
