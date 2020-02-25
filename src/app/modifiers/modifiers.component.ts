@@ -56,14 +56,17 @@ export class ModifiersComponent implements OnInit {
       // this.toastr.warning("Deleted successfully", "EMP. Register");
     }
   }
-  editData(modifier: any) {
-    this.openDialog(modifier, "Edit Modifier", "Edit");
+  editData(test: any) {
+    debugger;
+    this.service.formData = Object.assign({}, test);
+    this.openDialog(test, "Edit Modifier", "Edit");
   }
   addData() {
     this.openDialog(null, "Add New Modifier", "Add");
   }
 
   openDialog(obj: any, DialogHeader: string, DialogType: string): void {
+    debugger;
     const dialogRef = this.dialog.open(ModifierDialogComponent, {
       width: "600px",
       data: {

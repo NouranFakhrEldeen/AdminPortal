@@ -4,7 +4,9 @@ import {
   MatSnackBar,
   MatDialogRef,
   MAT_DIALOG_DATA,
-  MatChipInputEvent
+  MatChipInputEvent,
+  MatCheckboxChange,
+  MatCheckbox
 } from "@angular/material";
 import { ActivatedRoute, Router } from "@angular/router";
 import { ENTER, COMMA } from "@angular/cdk/keycodes";
@@ -22,33 +24,35 @@ export class ModifierDialogComponent {
   // dataItem: ModifierService;
   modifierForm: FormGroup;
   public allModifier: ModifierModel[];
+  IsChecked = false;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   constructor(
     private activeAouter: ActivatedRoute,
     private router: Router,
-    private dataItem: ModifierService,
+    private service: ModifierService,
     private _messagePopup: MatSnackBar,
     private firestore: AngularFirestore,
     public dialogRef: MatDialogRef<ModifierDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.modifierForm = new FormGroup({
-      id: new FormControl("", Validators.required),
+      id: new FormControl(),
       name: new FormControl("", Validators.required),
       description: new FormControl("", Validators.required),
       price: new FormControl("", Validators.required),
       maxpicks: new FormControl("", Validators.required),
-      multiselect: new FormControl("", Validators.required)
+      multiselect: new FormControl(true, Validators.required)
     });
 
     if (this.data.operationType === "Add") {
-      this.dataItem.formData = new ModifierModel();
+      this.service.formData = new ModifierModel();
     } else {
-      this.dataItem.formData = this.data.dialogData;
-      this.dataItem.formData.id = this.data.dialogData.Id;
-      this.dataItem.formData.name = this.data.dialogData.name;
-      // this.dataItem.formData.multiselect = true;
+      this.service.formData = this.data.dialogData;
+      // this.service.formData.id = this.data.dialogData.id;
+      // this.service.formData.name = this.data.dialogData.name;
+      // this.service.formData.multiselect = true;
     }
+    this.resetForm();
   }
   public hasError = (controlName: string, errorName: string) => {
     return this.modifierForm.controls[controlName].hasError(errorName);
@@ -59,17 +63,16 @@ export class ModifierDialogComponent {
       this.addData(this.modifierForm);
     }
     if (this.data.operationType === "Edit") {
-      this.onEdit(this.dataItem.formData);
+      debugger;
+      // this.onEdit(this.service.formData);
+      // this.service.formData = Object.assign({}, this.modifierForm.value);
 
-      this.editData(this.modifierForm);
+      this.editData(this.service.formData);
     }
 
     // if (this.data.operationType === "Delete") {
     //   this.deleteData(this.modifierForm);
     // }
-  }
-  onEdit(modifier: ModifierModel) {
-    this.dataItem.formData = Object.assign({}, modifier);
   }
 
   addData(objToAdd: FormGroup) {
@@ -78,18 +81,16 @@ export class ModifierDialogComponent {
     if (objToAdd.value.id == null)
       this.firestore.collection("Modifiers").add(data);
     this.dialogRef.close();
+    this.resetForm(this.modifierForm);
   }
 
-  editData(modifier) {
-    let data = Object.assign({}, modifier.value);
-    // delete data.id;
-    console.log(data.id);
-    console.log(modifier.value);
-    this.firestore.doc("Modifiers/" + modifier.value.id).update(data);
-    console.log(modifier.value.id);
+  editData(test: any) {
+    let data = Object.assign({}, test);
+    debugger;
+    this.firestore.doc("Modifiers/" + test.id).update(data);
+    console.log(test.value.id);
     this.dialogRef.close();
   }
-  // deleteData(objToDelete: any) {}
 
   onCancelClick(event): void {
     event.preventDefault();
@@ -102,5 +103,21 @@ export class ModifierDialogComponent {
       panelClass: [classType],
       horizontalPosition: "right"
     });
+  }
+
+  resetForm(modifierForm?: FormGroup) {
+    if (modifierForm != null) modifierForm.reset();
+    this.service.formData = {
+      id: null,
+      name: "",
+      description: "",
+      price: "",
+      maxpicks: "",
+      multiselect: true
+    };
+  }
+  OnChange($event) {
+    console.log($event);
+    // this.IsChecked = true;
   }
 }

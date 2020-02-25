@@ -7,7 +7,7 @@ import { AngularFirestore } from "@angular/fire/firestore";
 export class CategoryService {
   constructor(private firestore: AngularFirestore) {}
   formData: CategoryModel;
-  getEmployees() {
+  getCategories() {
     return this.firestore.collection("Categories").snapshotChanges();
   }
 }
