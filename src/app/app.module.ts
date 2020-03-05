@@ -26,6 +26,8 @@ import { ModifiersComponent } from "./modifiers/modifiers.component";
 import { CategoryDialogComponent } from "./categories/category-dialog/category-dialog.component";
 import { ModifierDialogComponent } from "./modifiers/modifier-dialog/modifier-dialog.component";
 
+import { ProductDialogComponent } from "./product/product-dialog/product-dialog.component";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +41,9 @@ import { ModifierDialogComponent } from "./modifiers/modifier-dialog/modifier-di
     CategoriesComponent,
     ModifiersComponent,
     CategoryDialogComponent,
-    ModifierDialogComponent
+    ModifierDialogComponent,
+
+    ProductDialogComponent
   ],
   imports: [
     BrowserModule,

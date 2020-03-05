@@ -24,7 +24,7 @@ export class ModifierDialogComponent {
   // dataItem: ModifierService;
   modifierForm: FormGroup;
   public allModifier: ModifierModel[];
-  IsChecked = false;
+  IsChecked = true;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   constructor(
     private activeAouter: ActivatedRoute,
@@ -52,7 +52,7 @@ export class ModifierDialogComponent {
       // this.service.formData.name = this.data.dialogData.name;
       // this.service.formData.multiselect = true;
     }
-    this.resetForm();
+    // this.resetForm();
   }
   public hasError = (controlName: string, errorName: string) => {
     return this.modifierForm.controls[controlName].hasError(errorName);
@@ -84,6 +84,17 @@ export class ModifierDialogComponent {
     this.resetForm(this.modifierForm);
   }
 
+  resetForm(modifierForm?: FormGroup) {
+    if (modifierForm != null) modifierForm.reset();
+    this.service.formData = {
+      id: null,
+      name: "",
+      description: "",
+      price: "",
+      maxpicks: "",
+      multiselect: true
+    };
+  }
   editData(test: any) {
     let data = Object.assign({}, test);
     debugger;
@@ -105,17 +116,17 @@ export class ModifierDialogComponent {
     });
   }
 
-  resetForm(modifierForm?: FormGroup) {
-    if (modifierForm != null) modifierForm.reset();
-    this.service.formData = {
-      id: null,
-      name: "",
-      description: "",
-      price: "",
-      maxpicks: "",
-      multiselect: true
-    };
-  }
+  // resetForm(modifierForm?: FormGroup) {
+  //   if (modifierForm != null) modifierForm.reset();
+  //   this.service.formData = {
+  //     id: null,
+  //     name: "",
+  //     description: "",
+  //     price: "",
+  //     maxpicks: "",
+  //     multiselect: true
+  //   };
+  // }
   OnChange($event) {
     console.log($event);
     // this.IsChecked = true;
